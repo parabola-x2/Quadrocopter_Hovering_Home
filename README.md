@@ -21,8 +21,6 @@ layout:
     visible: false
 ---
 
-# README
-
 ### Timeline
 
 ```mermaid
