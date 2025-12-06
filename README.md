@@ -742,7 +742,7 @@ The communication between the smartphone and the Simulink simulation goes via UD
 
 ### Architecture:
 
-!\[alt tag]\(img/Architecture1.png)
+<figure><img src=".gitbook/assets/Architecture1.png" alt=""><figcaption></figcaption></figure>
 
 \-&#x20;
 
