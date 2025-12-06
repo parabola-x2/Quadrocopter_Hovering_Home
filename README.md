@@ -1,3 +1,26 @@
+---
+cover: >-
+  https://images.unsplash.com/photo-1504890001746-a9a68eda46e2?crop=entropy&cs=srgb&fm=jpg&ixid=M3wxOTcwMjR8MHwxfHNlYXJjaHw2fHxEcm9uZXxlbnwwfHx8fDE3NjUwMjAwOTV8MA&ixlib=rb-4.1.0&q=85
+coverY: 256.5
+layout:
+  width: default
+  cover:
+    visible: true
+    size: hero
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: true
+  pagination:
+    visible: true
+  metadata:
+    visible: true
+---
+
 # README
 
 ## Timeline
@@ -40,6 +63,14 @@ timeline 2017
 ## Team Tasks
 
 <figure><img src=".gitbook/assets/team tasks quadrocopter.png" alt=""><figcaption></figcaption></figure>
+
+#### Repositories and Submodules
+
+Disclaimer: Software has been written by students of various batches under supervision of Prof. Friedrich and Lecturer M Sc. Vikas Agrawal. Students are free to contact me, if they would like their names to be publically visible.
+
+The project is a combination of following respositores&#x20;
+
+<table data-view="cards"><thead><tr><th></th><th data-type="content-ref"></th><th data-hidden data-card-cover data-type="image">Cover image</th></tr></thead><tbody><tr><td>Embedded</td><td><a href="https://github.com/parabola-x2/Embedded">https://github.com/parabola-x2/Embedded</a></td><td><a href="https://images.unsplash.com/photo-1610812387871-806d3db9f5aa?crop=entropy&#x26;cs=srgb&#x26;fm=jpg&#x26;ixid=M3wxOTcwMjR8MHwxfHNlYXJjaHwxfHxSYXNwYmVycnklMjBQSXxlbnwwfHx8fDE3NjUwMTk5NzF8MA&#x26;ixlib=rb-4.1.0&#x26;q=85">https://images.unsplash.com/photo-1610812387871-806d3db9f5aa?crop=entropy&#x26;cs=srgb&#x26;fm=jpg&#x26;ixid=M3wxOTcwMjR8MHwxfHNlYXJjaHwxfHxSYXNwYmVycnklMjBQSXxlbnwwfHx8fDE3NjUwMTk5NzF8MA&#x26;ixlib=rb-4.1.0&#x26;q=85</a></td></tr><tr><td>Realtime Kernel</td><td><a href="https://github.com/parabola-x2/Kernel">https://github.com/parabola-x2/Kernel</a></td><td><a href="https://images.unsplash.com/photo-1629654291663-b91ad427698f?crop=entropy&#x26;cs=srgb&#x26;fm=jpg&#x26;ixid=M3wxOTcwMjR8MHwxfHNlYXJjaHw1fHxMaW51eHxlbnwwfHx8fDE3NjUwMTk5ODB8MA&#x26;ixlib=rb-4.1.0&#x26;q=85">https://images.unsplash.com/photo-1629654291663-b91ad427698f?crop=entropy&#x26;cs=srgb&#x26;fm=jpg&#x26;ixid=M3wxOTcwMjR8MHwxfHNlYXJjaHw1fHxMaW51eHxlbnwwfHx8fDE3NjUwMTk5ODB8MA&#x26;ixlib=rb-4.1.0&#x26;q=85</a></td></tr><tr><td>Matlab Control Simulation</td><td><a href="https://github.com/parabola-x2/Simulation">https://github.com/parabola-x2/Simulation</a></td><td><a href="https://images.unsplash.com/photo-1580642135909-a59e2b8805c6?crop=entropy&#x26;cs=srgb&#x26;fm=jpg&#x26;ixid=M3wxOTcwMjR8MHwxfHNlYXJjaHw2fHxGbGlnaHQlMjBjb250cm9sfGVufDB8fHx8MTc2NTAyMDA2MXww&#x26;ixlib=rb-4.1.0&#x26;q=85">https://images.unsplash.com/photo-1580642135909-a59e2b8805c6?crop=entropy&#x26;cs=srgb&#x26;fm=jpg&#x26;ixid=M3wxOTcwMjR8MHwxfHNlYXJjaHw2fHxGbGlnaHQlMjBjb250cm9sfGVufDB8fHx8MTc2NTAyMDA2MXww&#x26;ixlib=rb-4.1.0&#x26;q=85</a></td></tr><tr><td>Android Application</td><td><a href="https://github.com/parabola-x2/Android">https://github.com/parabola-x2/Android</a></td><td><a href="https://images.unsplash.com/photo-1607252650355-f7fd0460ccdb?crop=entropy&#x26;cs=srgb&#x26;fm=jpg&#x26;ixid=M3wxOTcwMjR8MHwxfHNlYXJjaHwxfHxhbmRyb2lkfGVufDB8fHx8MTc2NTAyMDEzNHww&#x26;ixlib=rb-4.1.0&#x26;q=85">https://images.unsplash.com/photo-1607252650355-f7fd0460ccdb?crop=entropy&#x26;cs=srgb&#x26;fm=jpg&#x26;ixid=M3wxOTcwMjR8MHwxfHNlYXJjaHwxfHxhbmRyb2lkfGVufDB8fHx8MTc2NTAyMDEzNHww&#x26;ixlib=rb-4.1.0&#x26;q=85</a></td></tr><tr><td>Virtual Reality</td><td><a href="https://github.com/parabola-x2/VirtualReality">https://github.com/parabola-x2/VirtualReality</a></td><td><a href="https://images.unsplash.com/photo-1593508512255-86ab42a8e620?crop=entropy&#x26;cs=srgb&#x26;fm=jpg&#x26;ixid=M3wxOTcwMjR8MHwxfHNlYXJjaHwzfHxWaXJ0dWFsJTIwUmVhbGl0eXxlbnwwfHx8fDE3NjUwMjAxNTN8MA&#x26;ixlib=rb-4.1.0&#x26;q=85">https://images.unsplash.com/photo-1593508512255-86ab42a8e620?crop=entropy&#x26;cs=srgb&#x26;fm=jpg&#x26;ixid=M3wxOTcwMjR8MHwxfHNlYXJjaHwzfHxWaXJ0dWFsJTIwUmVhbGl0eXxlbnwwfHx8fDE3NjUwMjAxNTN8MA&#x26;ixlib=rb-4.1.0&#x26;q=85</a></td></tr></tbody></table>
 
 #### TEAM Embedded Software&#x20;
 
