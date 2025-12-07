@@ -2,6 +2,18 @@
 
 #### Repository **:** [https://github.com/parabola-x2/Quadrocopter\_VirtualReality](https://github.com/parabola-x2/Quadrocopter_VirtualReality)
 
+**Team Android Application and Virtual Reality**
+
+Visualize the quadcopter in **Google Cardboard VR** and enable flight control through head movements.
+
+* **Head movement signals** are transmitted via **UDP** to the quadcopter.
+* The virtual reality device used is an **Android smartphone** equipped with **Google Cardboard**.
+* A dedicated Google Cardboard application will be developed using **Unreal Engine 4** and the **Google VR Plugin**.
+* The system can later be adapted for other VR platforms such as **Oculus Rift** or **HTC Vive**.
+* Communication between the smartphone, the **Simulink simulation**, and eventually the real quadcopter is established through **UDP protocols**.
+
+
+
 #### Description:
 
 Task is to bring a Simulink-based quadrocopter model to Google Cardboard VR

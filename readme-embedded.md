@@ -2,6 +2,18 @@
 
 #### Repository **:** [https://github.com/parabola-x2/Quadrocopter\_Embedded](https://github.com/parabola-x2/Quadrocopter_Embedded)
 
+**TEAM Embedded Software**
+
+Develop a real-time Linux kernel named **Raspbian.img** and port it to the Raspberry Pi. Run the application software to read sensor values and control the quadrocopter
+
+* Before porting the Linux image (**kernel.img**) to the Raspberry Pi, a bootloader must be installed to load the kernel during the startup process.
+* Once the kernel is running, the embedded software team should be able to debug it using **GDB**. For this purpose, the kernel must be compiled with the **-ggdb3** option (debugging enabled).
+* An IMU, gyroscope, and magnetometer are integrated as a peripheral board connected to the main Raspberry Pi motherboard.
+* Communication between the Raspberry Pi and the sensor board takes place via the **I2C bus**.
+* The application software (**HElikopter.bin**) and the I2C device drivers are already provided.
+* The application software is capable of reading acceleration, magnetic field, and gyroscope values.
+* The team should be able to set breakpoints at any point during execution of the application software on the hardware to inspect internal variables.
+
 #### Quadrocopter Hardware&#x20;
 
 ```

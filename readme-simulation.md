@@ -2,6 +2,20 @@
 
 #### Repository **:** [https://github.com/parabola-x2/Quadrocopter\_Simulation](https://github.com/parabola-x2/Quadrocopter_Simulation)
 
+**TEAM Control Application**
+
+Develop a MATLAB model that stabilizes the quadcopter during hovering, ensuring roll, pitch, and yaw angles remain at zero.
+
+* The core quadcopter MATLAB model incorporates static parameters such as **weight**, **arm length**, and **number of rotors**, which are essential for emulating quadcopter dynamics.
+* **Initial values** for angles, accelerations, and rotor speeds are provided as inputs to the model.
+* The model then predicts the **roll, pitch, and yaw angles**, along with the **linear accelerations** in all directions.
+* These predicted angles and accelerations are fed into the hovering control model, which calculates the required rotor angular speeds.
+* The calculated rotor speeds are fed back into the quadcopter model, creating a **closed-loop iterative process** that continues throughout the simulation.
+* The control team must generate the hovering model using the **MATLAB Real-Time Code Generator** to ensure real-time execution.
+* Verification of the software is performed through **Software-in-the-Loop (SiL) testing**, validating the correctness and stability of the hovering control system.
+
+
+
 **Kalman Filter**
 
 \[\[http://www.convict.lu/htm/rob/imperfect\_data\_in\_a\_noisy\_world2.htm]] \[\[https://www.codeproject.com/Articles/865935/Object-Tracking-Kalman-Filter-with-Ease]]
