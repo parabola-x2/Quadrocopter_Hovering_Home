@@ -4,8 +4,8 @@
 
 <figure><img src=".gitbook/assets/DB-foto.png" alt="" width="375"><figcaption></figcaption></figure>
 
-Quadrocopter Raspberry Pi 2016 
-Datenbank mit PythonMySQL\
+Quadrocopter Raspberry Pi 2016 Datenbank mit PythonMySQL\
+Universität Tübingen\
 Author: Jascha Petter\
 Dienstag 20.08.16
 
@@ -45,20 +45,59 @@ Abbildungsverzeichnis
 2.11 Importieren einer Tabelle\
 <br>
 
-1.1 MySQL
 
-Um auf Ihrem System einen MySQL Server laufen zu lassen, benötigen Sie den „MySQL Community Server“ Laden Sie sich hierzu den MySQL Community Server von der MySQL Homepage herunter. http://dev.mysql.com/downloads/mysql/1 Wählen Sie dort die dementsprechende Version für Ihr System. Sie müssen sich für den Download nicht anmelden, oder ein Konto erstellen. Klicken Sie einfach auf „No thanks, just start my download“ Nach der Installation wir Ihnen das Passwort für den Root User angezeigt. 
+## MySQL Community Server Installation
 
-![](<.gitbook/assets/Database/rootPW.png>)
+Um auf Ihrem System einen MySQL Server laufen zu lassen, benötigen Sie den **MySQL Community Server**.
+
+## Schritte zur Installation
+
+1. **Download starten**  
+   Laden Sie den MySQL Community Server von der offiziellen MySQL Homepage herunter:  
+   [MySQL Community Server Download](http://dev.mysql.com/downloads/mysql/1)
+
+2. **Version auswählen**  
+   Wählen Sie die passende Version für Ihr Betriebssystem.
+
+3. **Kein Konto erforderlich**  
+   Sie müssen sich für den Download nicht anmelden oder ein Konto erstellen.  
+   Klicken Sie einfach auf **„No thanks, just start my download“**.
+
+4. **Installation**  
+   Führen Sie die Installation durch.
+
+5. **Root-Passwort**  
+   Nach der Installation wird Ihnen das Passwort für den **Root User** angezeigt.
+
+![](<.gitbook/assets/Database/RootPW.png>)
 
 Abbildung 1.1: Passwort Alert 
 
-Notieren Sie sich dieses, da es später noch gebraucht wird! 3. Öffen sie nun Ihren Terminal und geben folgende Befehle ein, um ein neues Passwort zu vergeben: $ cd /usr/local/mysql/bin $ ./mysqladmin -u root -p password ’’ Sie werden nun aufgefordert Ihr Root-Passwort, welches Sie vorhin notiert haben, einzugeben. $ exit Um zurückzukehren
+6. My SQL Root-Passwort ändern
+
+Notieren Sie sich das Root-Passwort, da es später noch gebraucht wird!
+
+7. Schritt 3: Neues Passwort vergeben
+
+Öffnen Sie nun Ihr Terminal und geben folgende Befehle ein:
+
+8. Wechseln Sie ins MySQL-Bin-Verzeichnis
+cd /usr/local/mysql/bin
+
+9. Neues Passwort setzen
+./mysqladmin -u root -p password ''
+
+Sie werden nun aufgefordert, Ihr zuvor notiertes Root-Passwort einzugeben.
+Terminal verlassen
+
+exit
+
+Damit kehren Sie zurück.
 
 
+Nun erstellen wir einen neuen Benutzer und geben diesem die notwendigen Rechte. 
 
-Nun erstellen wir einen neuen Benutzer und geben diesem die notwendigen Rechte. $ ./mysql -u root -p mysql > CREATE USER ’PiSense’@’%’ IDENTIFIED BY ’somePW’; mysql > GRANT ALL PRIVILEGES ON _._ TO ’PiSense’@’%’; Dies ist nun der neue Benutzer, mit dem gearbeitet wird Nun muss noch der MySQL-Server gestartet werden. Dies ist wie folgt möglich. $ cd /usr/local/mysql/support-files/ $ sudo ./mysql.server start 1.2 Datenbank Da wir nun einen Benutzer zum arbeiten habe, fehlt nur noch die Datenbank und eine Tabelle Zu erst muss ein neues Schema erstellt werden: $ cd /usr/local/mysql/bin $ ./mysql -u PiSense -p mysql > CREATE DATABASE ‘SenseData‘ COLLATE ’latin1\_swedish\_ci’; 2. Nun können Sie eine Tabelle anlegen: mysql > CREATE TABLE ‘SenseData‘.‘DATA‘ ( ‘PITIME‘ timestamp(2) PRIMARY KEY NOT NULL, ‘ACC\_X‘ double NOT NULL, ‘ACC\_Y‘ double NOT NULL, ‘ACC\_Z‘ double NOT NULL, ‘MAG\_X‘ double NOT NULL, ‘MAG\_Y‘ double NOT NULL, ‘MAG\_Z‘ double NOT NULL, ‘G\_ROLL‘ double NOT NULL, ‘G\_PITCH‘ double NOT NULL, ‘G\_YAW‘ double NOT NULL, ‘TEMP‘ double NOT NULL, ‘PRESS‘ double NOT NULL, ‘M1‘ double NOT NULL, ‘M2‘ double NOT NULL, ‘M3‘ double NOT NULL, ‘M4‘ double NOT NULL ) ENGINE=’InnoDB’ COLLATE ’latin1\_swedish\_ci’; Zu den jeweiligen Einträgen später mehr. Jetzt ist die Datenbank vollständig erstellt und kann mit Daten gefüllt werden.
-
+$ ./mysql -u root -p mysql > CREATE USER ’PiSense’@’%’ IDENTIFIED BY ’somePW’; mysql > GRANT ALL PRIVILEGES ON _._ TO ’PiSense’@’%’; Dies ist nun der neue Benutzer, mit dem gearbeitet wird Nun muss noch der MySQL-Server gestartet werden. Dies ist wie folgt möglich. $ cd /usr/local/mysql/support-files/ $ sudo ./mysql.server start 1.2 Datenbank Da wir nun einen Benutzer zum arbeiten habe, fehlt nur noch die Datenbank und eine Tabelle Zu erst muss ein neues Schema erstellt werden: $ cd /usr/local/mysql/bin $ ./mysql -u PiSense -p mysql > CREATE DATABASE ‘SenseData‘ COLLATE ’latin1\_swedish\_ci’; 2. Nun können Sie eine Tabelle anlegen: mysql > CREATE TABLE ‘SenseData‘.‘DATA‘ ( ‘PITIME‘ timestamp(2) PRIMARY KEY NOT NULL, ‘ACC\_X‘ double NOT NULL, ‘ACC\_Y‘ double NOT NULL, ‘ACC\_Z‘ double NOT NULL, ‘MAG\_X‘ double NOT NULL, ‘MAG\_Y‘ double NOT NULL, ‘MAG\_Z‘ double NOT NULL, ‘G\_ROLL‘ double NOT NULL, ‘G\_PITCH‘ double NOT NULL, ‘G\_YAW‘ double NOT NULL, ‘TEMP‘ double NOT NULL, ‘PRESS‘ double NOT NULL, ‘M1‘ double NOT NULL, ‘M2‘ double NOT NULL, ‘M3‘ double NOT NULL, ‘M4‘ double NOT NULL ) ENGINE=’InnoDB’ COLLATE ’latin1\_swedish\_ci’; Zu den jeweiligen Einträgen später mehr. Jetzt ist die Datenbank vollständig erstellt und kann mit Daten gefüllt werden.
 
 
 1.3 Python
