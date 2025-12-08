@@ -2,46 +2,11 @@
 
 #### Repository **:** [https://github.com/parabola-x2/Quadrocopter\_Database](https://github.com/parabola-x2/Quadrocopter_Database)
 
-<figure><img src=".gitbook/assets/Database/DB-foto.png" alt="" width="375"><figcaption></figcaption></figure>
-
 Quadrocopter Raspberry Pi 2016 Datenbank mit PythonMySQL\
-Author: Jascha Petter\
+Author: Jascha Petter\\
 
 Vorwort\
 Als Student der Universität Tübingen, in einem der Informatikstudiengänge, ist die Teilnahme an einem Programmierprojekt vorgesehen. Aus den vielen angebotenen Projekten habe ich mich für das Projekt „PiSense mit Quadrocopter“ entschieden. In diesem Projekt waren die Anpassung der Low Level Treiber, das Darstellen der Sensordaten in einer GUI, eine App zum steuern der Motoren des Quadrocopters, sowie die gemessen Daten in einer Datenbank abzulegen als Ziele gegeben. Die folgende Dokumentation soll das erstellen und Verwalten einer Datenbank, sowie das Empfangen der Daten per UDP beschreiben.
-
-Inhaltsverzeichnis\
-1.1 MySQL\
-1.2 Datenbank\
-1.3 Python\
-2 Anwendung 4 2.1 Struktur der Datenbank\
-2.2 Auszug aus der Datenbank\
-2.3 Python\
-2.3.1 Verbindung zur Datenbank\
-2.3.2 UDP Socket\
-2.3.3 Empfangen und aufteilen der Daten\
-2.3.4 Ablegen der Daten\
-2.3.5 Ausführen des Skriptes\
-2.4 Verwalten der Datenbank\
-2.4.1 Adminer einrichten\
-2.4.2 Adminer bedienen\
-3 Zukünftige Arbeit
-
-Abbildungsverzeichnis
-
-1.1 Passwort Alert\
-2.1 Struktur der Datenbank\
-2.2 Daten der Demo\
-2.3 Connector\
-2.4 UDP Socket\
-2.5 Empfange der Message\
-2.6 Trennen der Daten\
-2.7 Query\
-2.8 Anmelden in Adminer\
-2.9 Adminer Übersicht\
-2.10 SQL-Kommando\
-2.11 Importieren einer Tabelle\
-<br>
 
 ## MySQL Community Server Installation
 
@@ -81,31 +46,11 @@ Damit kehren Sie zurück.
 
 10. Nun erstellen wir einen neuen Benutzer und geben diesem die notwendigen Rechte.
 
-`
-$ ./mysql -u root -p mysql > CREATE USER ’PiSense’@’%’ IDENTIFIED BY ’somePW’;
-mysql > GRANT ALL PRIVILEGES ON _._ TO ’PiSense’@’%’; 
-`
-Dies ist nun der neue Benutzer, mit dem gearbeitet wird Nun muss noch der MySQL-Server gestartet werden. Dies ist wie folgt möglich. 
-`
-$ cd /usr/local/mysql/support-files/ 
-$ sudo ./mysql.server start 
-`
-Da wir nun einen Benutzer zum arbeiten habe, fehlt nur noch die Datenbank und eine Tabelle Zu erst muss ein neues Schema erstellt werden: 
-`
-$ cd /usr/local/mysql/bin 
-$ ./mysql -u PiSense -p mysql > CREATE DATABASE ‘SenseData‘ COLLATE ’latin1\_swedish\_ci’; 
-`
+`$ ./mysql -u root -p mysql > CREATE USER ’PiSense’@’%’ IDENTIFIED BY ’somePW’; mysql > GRANT ALL PRIVILEGES ON _._ TO ’PiSense’@’%’;` Dies ist nun der neue Benutzer, mit dem gearbeitet wird Nun muss noch der MySQL-Server gestartet werden. Dies ist wie folgt möglich. `$ cd /usr/local/mysql/support-files/ $ sudo ./mysql.server start` Da wir nun einen Benutzer zum arbeiten habe, fehlt nur noch die Datenbank und eine Tabelle Zu erst muss ein neues Schema erstellt werden: `$ cd /usr/local/mysql/bin $ ./mysql -u PiSense -p mysql > CREATE DATABASE ‘SenseData‘ COLLATE ’latin1\_swedish\_ci’;`
 
-Nun können Sie eine Tabelle anlegen: 
-`
-mysql > CREATE TABLE ‘SenseData‘.‘DATA‘ ( ‘PITIME‘ timestamp(2) PRIMARY KEY NOT NULL, ‘ACC\_X‘ double NOT NULL, ‘ACC\_Y‘ double NOT NULL, ‘ACC\_Z‘ double NOT NULL, ‘MAG\_X‘ double NOT NULL, ‘MAG\_Y‘ double NOT NULL, ‘MAG\_Z‘ double NOT NULL, ‘G\_ROLL‘ double NOT NULL, ‘G\_PITCH‘ double NOT NULL, ‘G\_YAW‘ double NOT NULL, ‘TEMP‘ double NOT NULL, ‘PRESS‘ double NOT NULL, ‘M1‘ double NOT NULL, ‘M2‘ double NOT NULL, ‘M3‘ double NOT NULL, ‘M4‘ double NOT NULL ) ENGINE=’InnoDB’ COLLATE ’latin1\_swedish\_ci’;
-`
+Nun können Sie eine Tabelle anlegen: `mysql > CREATE TABLE ‘SenseData‘.‘DATA‘ ( ‘PITIME‘ timestamp(2) PRIMARY KEY NOT NULL, ‘ACC\_X‘ double NOT NULL, ‘ACC\_Y‘ double NOT NULL, ‘ACC\_Z‘ double NOT NULL, ‘MAG\_X‘ double NOT NULL, ‘MAG\_Y‘ double NOT NULL, ‘MAG\_Z‘ double NOT NULL, ‘G\_ROLL‘ double NOT NULL, ‘G\_PITCH‘ double NOT NULL, ‘G\_YAW‘ double NOT NULL, ‘TEMP‘ double NOT NULL, ‘PRESS‘ double NOT NULL, ‘M1‘ double NOT NULL, ‘M2‘ double NOT NULL, ‘M3‘ double NOT NULL, ‘M4‘ double NOT NULL ) ENGINE=’InnoDB’ COLLATE ’latin1\_swedish\_ci’;`
 
-![](.gitbook/assets/Database/DB-foto.png)
-
-Zu den jeweiligen Einträgen später mehr.`
-`
-Jetzt ist die Datenbank vollständig erstellt und kann mit Daten gefüllt werden.
+Zu den jeweiligen Einträgen später mehr. Jetzt ist die Datenbank vollständig erstellt und kann mit Daten gefüllt werden.
 
 ### Python
 
@@ -121,9 +66,7 @@ Aufgabe des Python Skriptes ist es die Daten, welche vom Quadrocopter gemessen u
 
 ![](.gitbook/assets/Database/tblstr.png)
 
-Abbildung 2.1:
-
-Struktur der Datenbank
+Abbildung 2.1: Struktur der Datenbank
 
 • PITIME PITIME ist die Zeit, welche momentan auf dem Pi herscht. Sie wurde als Primary Key gewählt, da es zu jeder Zeit nur einen Messwert geben kann. Angegeben wird sie als Timestamp (YYYY-MM-DD HH:MM:SS:MS) mit einen Genauigkeit von 10ms.
 
@@ -135,7 +78,7 @@ Struktur der Datenbank
 
 • M1/2/3/4 Für die jeweiligen Motoren werden vier Datensätze abgelegt, da diese sich unabhänging von einander drehen können
 
-2.2 Auszug aus der Datenbank
+#### Auszug aus der Datenbank
 
 Hier ist ein beispielhafter Auszug der Datenbank zu sehen, er zeigt einen Ausschnitt aus der Demo.
 
@@ -143,7 +86,7 @@ Hier ist ein beispielhafter Auszug der Datenbank zu sehen, er zeigt einen Aussch
 
 Abbildung 2.2: Daten der Demo
 
-2.3 Python 2.3.1
+### Python 2.3.1
 
 Verbindung zur Datenbank Um auf die vorhin erstelle Datenbank zuzugreifen, muss eine Verbindung hergestellt werden. Hierzu wird der neue Benutzer PiSense benötigt, natürlich könnten man auch Root benutzen das ist aber nicht Sinn der Sache.
 
@@ -151,7 +94,7 @@ Verbindung zur Datenbank Um auf die vorhin erstelle Datenbank zuzugreifen, muss 
 
 Abbildung 2.3: Connector
 
-2.3.2 UDP Socket
+### UDP Socket
 
 Damit das Skipt eine Message vom Quadrocopter empfangen kann, muss ein UDP Socket auf einem bestimmten Port Lauschen. Python stellt uns hierbei einen Receive-Funktion zur verfügung. Es muss nur die IP und der Port and einen Socket gebindet werden.
 
@@ -161,7 +104,7 @@ Abbildung 2.4: UDP Socket
 
 In diesem Fall lauschen wir auf dem Port 5000, benutzen IPv4 und natürlich UDP
 
-2.3.3 Empfangen und aufteilen der Daten
+### Empfangen und aufteilen der Daten
 
 ![](.gitbook/assets/Database/whilerec.png)
 
@@ -173,7 +116,7 @@ Es wird so lange gewartet bis eine Message ankommt, falls diese der String ÄFAF
 
 Abbildung 2.6: Trennen der Daten
 
-2.3.4 Ablegen der Daten
+### Ablegen der Daten
 
 Damit die empfangenen Date jetzt nicht verloren gehen, werden sie in die Datenbank geschrieben. Dies erfolgt über einen INSERT. Hierbei werden die Daten in ihre jeweiligen Spalten der Tabelle gespeichert. Am ende muss das Query noch commited werden, an die Datenbank.
 
@@ -183,13 +126,13 @@ Abbildung 2.7: Query
 
 Um sicherzustellen, dass das Skript funktioniert kann mit dem udpSend.py Skipt ein Senden des Quadrocopters simuliert werden. Jedoch handelt es sich hierbei nur um Zufallswerte
 
-2.3.5 Ausführen des Skriptes
+### Ausführen des Skriptes
 
 Das Pythonscript lässt sich wie folgt ausführen. Wechseln Sie dazu in das Verzeichnis wo die udpReceive.py zu finden ist. $ python udpReceive.py Falls Sie nun das Skript beenden wollen senden Sie per UDP den String „AFAF“. $ echo "AFAF" | nc -4u localhost 5000
 
-2.4 Verwalten der Datenbank
+## Verwalten der Datenbank
 
-2.4.1 Adminer einrichten
+### Adminer einrichten
 
 Adminer wurde zum verwalten der Datenbank verwendet
 
@@ -198,7 +141,7 @@ Adminer wurde zum verwalten der Datenbank verwendet
 3. Jetzt müssen Sie Apache nur noch für php konfigurieren. Erstellen sie ein Backoup Ihrer alten Konfiguration. $ cd /etc/apache2/ $ cp httpd.conf httpd.conf.bak Nun editieren sie die httpd.conf Datei $ vi httpd.conf und kommentieren folgende Zeile wieder ein (die # enfernen). LoadModule php5\_module libexec/apache2/libphp5.so
 4. Nun muss der Apache nur noch neugestartet werden. $ sudo apachectl restart
 
-2.4.2 Adminer bedienen
+### Adminer bedienen
 
 1. Navigieren sie Ihren Browser zu: localhost/adminer-4.2.5.php
 2. Melden Sie sich mit dem Benutzer für die Datenbank an:
@@ -225,7 +168,7 @@ Abbildung 2.10: SQL-Kommando
 
 Abbildung 2.11: Importieren einer Tabelle
 
-3 Zukünftige Arbeit
+### Zukünftige Arbeit
 
 • Enwiklung einer GUI Eine GUI, damit die gesammten Skripte nicht mehr von Hand gestartet werden müssen.
 
