@@ -46,7 +46,19 @@ Damit kehren Sie zurück.
 
 10. Nun erstellen wir einen neuen Benutzer und geben diesem die notwendigen Rechte.
 
-`$ ./mysql -u root -p mysql > CREATE USER ’PiSense’@’%’ IDENTIFIED BY ’somePW’; mysql > GRANT ALL PRIVILEGES ON _._ TO ’PiSense’@’%’;` Dies ist nun der neue Benutzer, mit dem gearbeitet wird Nun muss noch der MySQL-Server gestartet werden. Dies ist wie folgt möglich. `$ cd /usr/local/mysql/support-files/ $ sudo ./mysql.server start` Da wir nun einen Benutzer zum arbeiten habe, fehlt nur noch die Datenbank und eine Tabelle Zu erst muss ein neues Schema erstellt werden: `$ cd /usr/local/mysql/bin $ ./mysql -u PiSense -p mysql > CREATE DATABASE ‘SenseData‘ COLLATE ’latin1\_swedish\_ci’;`
+```
+$ ./mysql -u root -p mysql > CREATE USER ’PiSense’@’%’ IDENTIFIED BY ’somePW’;
+mysql > GRANT ALL PRIVILEGES ON _._ TO ’PiSense’@’%’;
+```
+Dies ist nun der neue Benutzer, mit dem gearbeitet wird Nun muss noch der MySQL-Server gestartet werden. Dies ist wie folgt möglich. 
+
+```
+$ cd /usr/local/mysql/support-files/ $ sudo ./mysql.server start
+```
+Da wir nun einen Benutzer zum arbeiten habe, fehlt nur noch die Datenbank und eine Tabelle Zu erst muss ein neues Schema erstellt werden: 
+```
+$ cd /usr/local/mysql/bin $ ./mysql -u PiSense -p mysql > CREATE DATABASE ‘SenseData‘ COLLATE ’latin1\_swedish\_ci’;
+```
 
 Nun können Sie eine Tabelle anlegen:&#x20;
 
