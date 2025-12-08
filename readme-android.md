@@ -8,7 +8,7 @@ The project contains a AndroidStudio based Java Android application to steer a q
 
 Author : Christoph Weik
 
-![](.gitbook/assets/unknown.png)
+![](.gitbook/assets/Android/android_title.jpg)
 
 PiSense mit Quadrocopter 2016&#x20;
 
@@ -96,7 +96,6 @@ Abbildungsverzeichnis III\
 2.10 Auslesen der SharedPreferences XML und Prüfen auf Darstellungsmodus
 
 1 Getting Started (mit Windows 7)&#x20;
-
 1 1.1 Java 8 installieren\
 1.1.1 Installation des Java Development Kit 8<br>
 
