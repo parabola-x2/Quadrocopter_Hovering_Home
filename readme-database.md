@@ -50,6 +50,8 @@ Damit kehren Sie zurück.
 
 Nun können Sie eine Tabelle anlegen: `mysql > CREATE TABLE ‘SenseData‘.‘DATA‘ ( ‘PITIME‘ timestamp(2) PRIMARY KEY NOT NULL, ‘ACC\_X‘ double NOT NULL, ‘ACC\_Y‘ double NOT NULL, ‘ACC\_Z‘ double NOT NULL, ‘MAG\_X‘ double NOT NULL, ‘MAG\_Y‘ double NOT NULL, ‘MAG\_Z‘ double NOT NULL, ‘G\_ROLL‘ double NOT NULL, ‘G\_PITCH‘ double NOT NULL, ‘G\_YAW‘ double NOT NULL, ‘TEMP‘ double NOT NULL, ‘PRESS‘ double NOT NULL, ‘M1‘ double NOT NULL, ‘M2‘ double NOT NULL, ‘M3‘ double NOT NULL, ‘M4‘ double NOT NULL ) ENGINE=’InnoDB’ COLLATE ’latin1\_swedish\_ci’;`
 
+![](.gitbook/assets/Database/DB-foto.png)
+
 Zu den jeweiligen Einträgen später mehr. Jetzt ist die Datenbank vollständig erstellt und kann mit Daten gefüllt werden.
 
 ### Python
