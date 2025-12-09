@@ -6,7 +6,7 @@ The project contains a AndroidStudio based Java Android application to steer a q
 
 {% columns %}
 {% column %}
-<figure><img src=".gitbook/assets/AppVorlage1.png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/Android/AppVorlage1.png" alt=""><figcaption></figcaption></figure>
 {% endcolumn %}
 
 {% column %}
